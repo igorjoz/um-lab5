@@ -1,0 +1,11 @@
+Wnioski - zadanie 1
+
+Po odfiltrowaniu MNIST do cyfr z mojego numeru albumu, czyli `1, 2, 3, 5, 7, 9`, klasyfikator SGD po standaryzacji uzyskał dokładność `0.9135` na `6106` próbkach testowych. Najpewniej rozpoznawana była cyfra `1` (`precision=0.9856`, `recall=0.9630`). Największy problem widać przy cyfrze `3`: ma wysoki `recall=0.9475`, ale niższe `precision=0.7328`, bo model dość często przypisywał do klasy `3` także inne cyfry, np. `86` dwójek, `81` piątek, `79` dziewiątek i `65` siódemek. Ogólnie wynik jest dobry, ale macierz pomyłek pokazuje, że model za często wybiera klasę `3`.
+
+Wnioski - zadanie 2
+
+Dla klasyfikacji wieloetykietowej KNN trenowany na `12000` próbkach dał `exact match accuracy=0.9617`, więc w większości przypadków trafiał obie etykiety jednocześnie. Etykieta `liczba pierwsza` wyszła minimalnie lepiej (`F1=0.9717`) niż etykieta `podzielna przez 3` (`F1=0.9669`), ale różnica jest mała. W macierzy pomyłek dla liczb pierwszych było `86` fałszywych alarmów i `137` pominięć, a dla podzielności przez `3` odpowiednio `151` fałszywych alarmów i `112` pominięć. Wyniki są dobre, bo obie etykiety mają accuracy powyżej `0.97`.
+
+Wnioski - zadanie 3
+
+Dla cyfry `7` mocniejszy szum `0-150` został odszumiony wyraźnie lepiej: średni `MSE` spadł z `6827.54` do `1775.59`, a `MAE` z `69.00` do `12.03`. Przy słabszym szumie `0-50` wynik jest mieszany: `MAE` poprawił się z `23.39` do `11.19`, ale `MSE` pogorszył się z `778.68` do `1594.20`. Dla pierwszej testowanej siódemki odszumianie poprawiło `MSE` w obu eksperymentach (`804.28 -> 510.99` oraz `6848.63 -> 510.99`). Wyszło więc, że KNN pomaga szczególnie przy mocnym zaszumieniu, a przy lekkim szumie potrafi zmienić kształt cyfry na tyle, że średni błąd kwadratowy może wyjść gorszy.

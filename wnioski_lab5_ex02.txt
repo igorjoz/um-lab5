@@ -1,0 +1,3 @@
+Wnioski - zadanie 1
+
+Po zmianie danych wejściowych na MNIST i użyciu przestrzeni ukrytej o wymiarze `64` model PCA zachował `0.8619` wariancji danych. Sama rekonstrukcja całego zbioru testowego miała niski błąd (`MSE=0.0078`, `MAE=0.0388`), więc model odtwarzał podstawowy kształt cyfr bez dużej straty. Dla cyfry `7`, czyli ostatniej cyfry mojego numeru albumu, dodany szum dał `MSE=0.0634` i `MAE=0.1506`. Po przejściu przez model błąd spadł do `MSE=0.0195` i `MAE=0.0817`, czyli poprawa wyniosła `69.31%` dla MSE oraz `45.75%` dla MAE. W tym teście odszumianie faktycznie pomogło, chociaż obraz po rekonstrukcji jest trochę wygładzony, co jest normalne przy kompresji do mniejszej liczby wymiarów.
