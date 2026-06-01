@@ -1,0 +1,7 @@
+Wnioski - zadanie 1
+
+Dla testowanych optymalizatorów najlepszy wynik na zbiorze testowym uzyskał `Adam` (`test_accuracy=0.4047`, `test_loss=1.6540`). `Nadam` był bardzo blisko (`test_accuracy=0.4037`, `test_loss=1.6628`), więc w tym eksperymencie praktycznie nie dał zauważalnej przewagi nad Adamem. `RMSprop` wypadł słabiej, bo miał `test_accuracy=0.3467` i większy błąd `test_loss=1.8733`. Po 8 epokach na tym podzbiorze CIFAR-10 najrozsądniej wypada więc Adam.
+
+Wnioski - zadanie 2
+
+Dla warstw Dropout najlepszy wynik dała najmniejsza sprawdzana wartość, czyli `0.1` (`test_accuracy=0.3890`, `test_loss=1.7001`). Przy `Dropout=0.3` wynik spadł do `0.3213`, a przy `Dropout=0.5` do `0.2463`, więc większy dropout za mocno osłabiał uczenie modelu w tym ustawieniu. Widać to też po dokładności treningowej: dla `0.5` wyniosła tylko `0.1665`, czyli model miał problem nawet z dopasowaniem się do danych treningowych. W tym eksperymencie dropout nie poprawił wyniku względem Adama bez Dropoutu z zadania 1 (`0.4047`), ale `0.1` był najmniej szkodliwy z trzech sprawdzonych wartości.
